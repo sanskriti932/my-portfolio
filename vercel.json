@@ -7,6 +7,24 @@
     "routes": [{
         "src": "/(.*)", "dest": "/public/$1"
     }],
+    
+        "builds": [
+          {
+            "src": "package.json",
+            "use": "@vercel/static-build",
+            "config": {
+              "distDir": "dist"
+            }
+          }
+        ],
+        "rewrites": [
+          {
+            "source": "/(.*)",
+            "destination": "/index.html"
+          }
+        ]
+      ,
+      
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "true",
